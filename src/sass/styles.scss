@@ -122,6 +122,11 @@ body {
     background: $color-neutral-100;
     color: $color-primary-400;
   }
+
+  &:hover,
+  &:focus {
+    background-color: rgb($color-neutral-900, 0.7);
+  }
 }
 
 .inverted {
