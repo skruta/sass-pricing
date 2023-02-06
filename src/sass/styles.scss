@@ -22,11 +22,10 @@ $size-8: 0.5rem;
 $size-12: 0.75rem; // (not in design)
 $size-16: 1rem;
 $size-20: 1.25rem;
-$size-24: 1.5rem;
 $size-32: 2rem;
 $size-36: 2.25rem;
 
-/* RESET */
+// simple reset
 *,
 *::before,
 *::after {
@@ -39,19 +38,15 @@ $size-36: 2.25rem;
   font: inherit;
 }
 
+// base styles
+
 body {
   font-size: $fs-400;
   font-weight: $fw-400;
+  font-family: $ff-sans;
   color: $color-neutral-900;
   background-color: $color-neutral-100;
-  font-family: $ff-sans;
   text-align: center;
-}
-
-h1 {
-  font-size: $fs-900;
-  color: $color-primary-400;
-  margin-block: $size-32;
 }
 
 .container {
@@ -59,53 +54,63 @@ h1 {
   margin-inline: auto;
 }
 
-.pricing-plans {
-  display: flex;
-  border: $size-8 solid $color-primary-400;
+.page-title {
+  color: $color-primary-400;
+  font-size: $fs-900;
+  margin-block: $size-32;
 }
 
-.plan {
+.pricing-plans {
+  border: $size-8 solid $color-primary-400;
+  display: flex;
+}
+
+.tier {
   flex: 1;
   padding: $size-36;
+  display: grid;
+  gap: $size-20;
 
   &__title {
-    font-size: $fs-500;
+    text-transform: uppercase;
     font-weight: $fw-700;
     color: $color-primary-400;
-    text-transform: uppercase;
   }
 
-  &__features {
+  &__feature-list {
     list-style: none;
   }
 
-  &__feature {
-    position: relative;
-    border-bottom: 1px solid rgb($color-neutral-900, 0.2);
-    padding-block: $size-20;
-
-    &:last-child {
-      border: none;
+  &__list-item {
+    &:not(:last-child)::after {
+      content: "";
+      display: block;
+      height: 1px;
+      margin-block: $size-20;
+      background-color: $color-neutral-900;
+      opacity: 0.2;
     }
   }
 
   &__price {
     font-size: $fs-800;
     font-weight: $fw-700;
-    margin-block-end: $size-20;
 
     span {
-      font-size: $fs-600;
       font-weight: $fw-400;
+      font-size: $fs-600;
     }
   }
 }
 
-.btn {
-  text-transform: uppercase;
-  padding: $size-16 $size-24;
-  border: none;
+.button {
   cursor: pointer;
-  background-color: $color-primary-400;
+  border: 0;
+  text-transform: uppercase;
+  font-weight: $fw-700;
   color: $color-neutral-100;
+  background-color: $color-primary-400;
+  padding: 1em 1.5em;
+
+  justify-self: center;
 }
